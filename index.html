@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Mart</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
-    <header>
-        <img src="/assets/icons/logo.png" alt="E-Mart Logo" role="img">
-        <nav>
+    <header class="flex items-center justify-between p-4 border-b border-gray-300">
+        <img class="h-20" src="/assets/icons/logo.png" alt="E-Mart Logo" role="img">
+        <nav class="flex gap-6 text-lg font-medium">
             <a href="">Home</a>
             <a href="">Shop</a>
             <a href="">Pages</a>
@@ -16,11 +17,11 @@
             <a href="">Elements</a>
             <a href="">Buy</a>
         </nav>
-        <div>
-            <img src="/assets/icons/search icon.png" alt="search icon">
-            <img src="/assets/icons/user icon.png" alt="user icon">
-            <img src="/assets/icons/heart icon.png" alt="heart icon">
-            <img src="/assets/icons/cart icon.png" alt="cart icon">
+        <div class="flex">
+            <img class="h-10" src="/assets/icons/search icon.png" alt="search icon">
+            <img class="h-10" src="/assets/icons/user icon.png" alt="user icon">
+            <img class="h-10" src="/assets/icons/heart icon.png" alt="heart icon">
+            <img class="h-10" src="/assets/icons/cart icon.png" alt="cart icon">
         </div>
     </header>
 </body>
