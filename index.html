@@ -5,13 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Mart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rochester&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="src/output.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
 </head>
+<style>
+
+
+</style>
+
+
 
 <body>
-    <header class="flex items-center justify-between p-4 border-b border-gray-300">
-        <img class="h-20" src="/assets/icons/logo.png" alt="E-Mart Logo" role="img">
-        <nav class="flex gap-6 text-lg font-medium">
+    <header class="flex h-20 items-center justify-between p-4 border-b border-gray-300">
+        <img class="h-18" src="/assets/icons/logo.png" alt="E-Mart Logo" role="img">
+        <nav class="flex gap-7 text-lg font-medium">
             <a class="hover:underline " href="">Home</a>
             <a class="hover:underline " href="">Shop</a>
             <a class="hover:underline " href="">Pages</a>
@@ -19,16 +30,26 @@
             <a class="hover:underline " href="">Elements</a>
             <a class="hover:underline " href="">Buy</a>
         </nav>
-        <div class="flex">
+        <div class="flex ">
             <a href=""> <img class="h-10" src="/assets/icons/search icon.png" alt="search icon"></a>
             <a href=""> <img class="h-10" src="/assets/icons/user icon.png" alt="user icon"></a>
             <a href=""> <img class="h-10" src="/assets/icons/heart icon.png" alt="heart icon"></a>
             <a href=""> <img class="h-10" src="/assets/icons/cart icon.png" alt="cart icon"></a>
         </div>
     </header>
-    <section class="bg-[#D9D9D9] h-100">
+    <section class="bg-[#D9D9D9] h-100 flex justify-around items-center gap-20">
 
+        <div class="Hero_Section_Heading ">
+            <h1 class="text-6xl" style="font-family: 'Rochester', cursive ; ">Season Sale</h1>
+            <h2 class="text-3xl">Min. 53-70%off</h2>
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                <button class="p-1" style=" background-color: #1258ef; color: white;">SHOP NOW</button>
+                    <button class="p-1" style="border:2px solid #1258ef;">READ MORE</button>
+            </div>
+        </div>
+        <div><img src="/assets/images/imgi_7_home-5-slider-2 (1).png" alt="Baner_image" style="height: 25rem;"></div>
     </section>
+
 </body>
 
 </html>
