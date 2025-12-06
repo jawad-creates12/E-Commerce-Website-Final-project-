@@ -84,12 +84,12 @@ function displayProducts() {
         row.innerHTML = `
             <td class="font-medium">${product.id}</td>
             <td>
-                <img src="${product.image}" alt="${product.name}" onerror="this.src='/assets/images/placeholder.png'">
+                <img src="${product.image}" alt="${product.name}" onerror="this.onerror=null; this.src='./assets/icons/image.png'">
             </td>
             <td class="font-medium">${product.name}</td>
             <td><span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">${product.category}</span></td>
             <td>${product.brand}</td>
-            <td class="font-semibold text-green-600">$${product.price.toFixed(2)}</td>
+            <td class="font-semibold text-green-600">Rs.${product.price.toFixed(2)}</td>
             <td>
                 <span class="${product.stock < 10 ? 'text-red-600 font-semibold' : 'text-gray-700'}">${product.stock}</span>
             </td>
@@ -129,13 +129,13 @@ function updateDashboard() {
     if (recentList) {
         recentList.innerHTML = recentProducts.map(p => `
             <div class="flex items-center gap-4 p-3 border-b last:border-b-0 hover:bg-gray-50">
-                <img src="${p.image}" alt="${p.name}" class="w-12 h-12 object-cover rounded" onerror="this.src='/assets/images/placeholder.png'">
+                <img src="${p.image}" alt="${p.name}" class="w-12 h-12 object-cover rounded" onerror="this.onerror=null; this.src='./assets/icons/image.png'">
                 <div class="flex-1">
                     <h4 class="font-medium">${p.name}</h4>
                     <p class="text-sm text-gray-500">${p.category} - ${p.brand}</p>
                 </div>
                 <div class="text-right">
-                    <p class="font-semibold text-green-600">$${p.price.toFixed(2)}</p>
+                    <p class="font-semibold text-green-600">Rs.${p.price.toFixed(2)}</p>
                     <p class="text-sm text-gray-500">Stock: ${p.stock}</p>
                 </div>
             </div>

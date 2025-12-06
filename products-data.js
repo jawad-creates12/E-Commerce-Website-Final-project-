@@ -8,7 +8,7 @@ const productsData = [
         "price": 999.99,
         "stock": 50,
         "description": "Powerful laptop with a quad-core i5 processor, 8GB RAM, 256GB SSD, and a 14-inch FHD display.",
-        "image": "../images/lapi.png"
+        "image": "./assets/images/lapi.png"
     },
     {
         "id": 2,
@@ -17,7 +17,7 @@ const productsData = [
         "brand": "TechGadget",
         "price": 499.99,
         "stock": 100,
-        "image": "../images/iphone.png",
+        "image": "./assets/images/iphone.png",
         "description": "Feature-rich smartphone with a 6.2-inch screen, 12MP dual camera, 128GB storage, and a 4000mAh battery."
     },
     {
@@ -27,7 +27,7 @@ const productsData = [
         "brand": "SoundBeats",
         "price": 149.99,
         "stock": 30,
-        "image": "../images/headphone.png",
+        "image": "./assets/images/headphone.png",
         "description": "High-quality wireless headphones with over-ear design, 20 hours of battery life, and a sleek black color."
     },
     {
@@ -37,7 +37,7 @@ const productsData = [
         "brand": "FitTech",
         "price": 199.99,
         "stock": 20,
-        "image": "../images/watch.png",
+        "image": "./assets/images/imgi_14_Men-Black-Analogue-and-Digital-Watch-2-430x502.jpg",
         "description": "Smartwatch with a 1.3-inch AMOLED display, water-resistant design, fitness tracking features, and a stylish silver color."
     },
     {
@@ -47,7 +47,7 @@ const productsData = [
         "brand": "SoundBeats",
         "price": 149.99,
         "stock": 30,
-        "image": "../images/speakers.png",
+        "image": "./assets/images/speakers.png",
         "description": "High-quality wireless headphones with over-ear design, 20 hours of battery life, and a sleek black color."
     },
     {
@@ -57,7 +57,7 @@ const productsData = [
         "brand": "Samsung",
         "price": 199.99,
         "stock": 20,
-        "image": "../images/tv.png",
+        "image": "./assets/images/tv.png",
         "description": "Smartwatch with a 1.3-inch AMOLED display, water-resistant design, fitness tracking features, and a stylish silver color."
     }
 ];

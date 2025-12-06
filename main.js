@@ -3,6 +3,13 @@
   // Initialize products in localStorage if not exists
   async function initializeProducts() {
     if (!localStorage.getItem('products')) {
+      // Try to use global productsData (loaded from products-data.js) if available
+      if (typeof productsData !== 'undefined') {
+        console.log('Initializing products from products-data.js');
+        localStorage.setItem('products', JSON.stringify(productsData));
+        return;
+      }
+
       try {
         const response = await fetch('./api/products.json');
         const productsData = await response.json();
@@ -27,10 +34,10 @@
     card.innerHTML = `
             <div class="relative h-64 overflow-hidden bg-gray-100">
                 <img 
-                    src="${product.image || '/assets/images/placeholder.png'}" 
+                    src="${product.image || './assets/icons/image.png'}" 
                     alt="${product.name}"
                     class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                    onerror="this.src='/assets/images/placeholder.png'"
+                    onerror="this.onerror=null; this.src='./assets/icons/image.png'"
                 >
                 ${product.stock < 10 ? '<span class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded text-xs">Low Stock</span>' : ''}
             </div>
@@ -45,7 +52,7 @@
                     <span class="text-xs text-gray-400">Stock: ${product.stock}</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-2xl font-bold text-blue-600">$${product.price.toFixed(2)}</span>
+                    <span class="text-2xl font-bold text-blue-600">Rs.${product.price.toFixed(2)}</span>
                     <button 
                         onclick="alert('Product added to cart!')"
                         class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium"
