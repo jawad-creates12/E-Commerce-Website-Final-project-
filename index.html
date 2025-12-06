@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rochester&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="src/output.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
 </head>
@@ -21,7 +22,7 @@
 
 <body>
     <header class="flex h-20 items-center justify-between p-4 border-b border-gray-300">
-        <img class="h-18" src="/assets/icons/logo.png" alt="E-Mart Logo" role="img">
+        <img class="h-18" src="/assets/icons/logo.png" alt="E-Mart Logo" role="img" onerror="this.style.display='none'">
         <nav class="flex gap-7 text-lg font-medium">
             <a class="hover:underline " href="">Home</a>
             <a class="hover:underline " href="">Shop</a>
@@ -29,12 +30,17 @@
             <a class="hover:underline " href="">Blogs</a>
             <a class="hover:underline " href="">Elements</a>
             <a class="hover:underline " href="">Buy</a>
+            <a class="hover:underline text-blue-600 font-semibold" href="admin.html">Admin</a>
         </nav>
         <div class="flex ">
-            <a href=""> <img class="h-10" src="/assets/icons/search icon.png" alt="search icon"></a>
-            <a href=""> <img class="h-10" src="/assets/icons/user icon.png" alt="user icon"></a>
-            <a href=""> <img class="h-10" src="/assets/icons/heart icon.png" alt="heart icon"></a>
-            <a href=""> <img class="h-10" src="/assets/icons/cart icon.png" alt="cart icon"></a>
+            <a href=""> <img class="h-10" src="/assets/icons/search icon.png" alt="search icon"
+                    onerror="this.style.display='none'"></a>
+            <a href=""> <img class="h-10" src="/assets/icons/user icon.png" alt="user icon"
+                    onerror="this.style.display='none'"></a>
+            <a href=""> <img class="h-10" src="/assets/icons/heart icon.png" alt="heart icon"
+                    onerror="this.style.display='none'"></a>
+            <a href=""> <img class="h-10" src="/assets/icons/cart icon.png" alt="cart icon"
+                    onerror="this.style.display='none'"></a>
         </div>
     </header>
     <section class="bg-[#D9D9D9] h-100 flex justify-around items-center gap-20">
@@ -44,11 +50,28 @@
             <h2 class="text-3xl">Min. 53-70%off</h2>
             <div style="display: flex; gap: 1rem; margin-top: 1rem;">
                 <button class="p-1" style=" background-color: #1258ef; color: white;">SHOP NOW</button>
-                    <button class="p-1" style="border:2px solid #1258ef;">READ MORE</button>
+                <button class="p-1" style="border:2px solid #1258ef;">READ MORE</button>
             </div>
         </div>
         <div><img src="/assets/images/imgi_7_home-5-slider-2 (1).png" alt="Baner_image" style="height: 25rem;"></div>
     </section>
+
+    <!-- Products Section -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl font-bold text-gray-800 mb-2">Featured Products</h2>
+                <p class="text-gray-600">Discover our latest collection of premium products</p>
+            </div>
+
+            <!-- Product Grid Container -->
+            <div id="product-container">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <script src="main.js"></script>
 
 </body>
 
