@@ -92,18 +92,67 @@
 
   // Initialize and display products
   await initializeProducts();
-  const products = getProducts();
+  let products = getProducts();
 
   console.log('Loaded products:', products.length, 'items');
 
   // Display products on the page
-  showProductContainer(products);
+  // Check if we are on the search results page
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchQuery = urlParams.get('q');
+
+  // If on search results page and have a query
+  if (window.location.pathname.includes('search-results.html') && searchQuery) {
+    const term = searchQuery.toLowerCase().trim();
+    const filteredProducts = products.filter(product =>
+      product.name.toLowerCase().includes(term) ||
+      (product.category && product.category.toLowerCase().includes(term))
+    );
+
+    const countElement = document.getElementById('search-results-count');
+    if (countElement) {
+      countElement.textContent = `Found ${filteredProducts.length} results for "${searchQuery}"`;
+    }
+
+    showProductContainer(filteredProducts);
+  } else if (!window.location.pathname.includes('search-results.html')) {
+    // If on homepage (or other pages), show all products by default
+    showProductContainer(products);
+  }
+
+  // Search Input Event Listener (Handles redirection)
+  const searchInput = document.querySelector('#search-input');
+  if (searchInput) {
+    // Pre-fill search input if on search page
+    if (searchQuery) {
+      searchInput.value = searchQuery;
+    }
+
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        const term = e.target.value.trim();
+        if (term) {
+          window.location.href = `search-results.html?q=${encodeURIComponent(term)}`;
+        }
+      }
+    });
+  }
 
   // Refresh products when localStorage changes
   window.addEventListener('storage', function (e) {
     if (e.key === 'products') {
-      const updatedProducts = getProducts();
-      showProductContainer(updatedProducts);
+      products = getProducts();
+      // Re-apply filter if on search page
+      if (window.location.pathname.includes('search-results.html') && searchQuery) {
+        const term = searchQuery.toLowerCase().trim();
+        const filteredProducts = products.filter(product =>
+          product.name.toLowerCase().includes(term) ||
+          (product.category && product.category.toLowerCase().includes(term))
+        );
+        showProductContainer(filteredProducts);
+      } else if (!window.location.pathname.includes('search-results.html')) {
+        showProductContainer(products);
+      }
     }
   });
 })();

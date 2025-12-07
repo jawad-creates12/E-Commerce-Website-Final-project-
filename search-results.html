@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Mart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rochester&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="src/output.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<style>
+
+
+</style>
+
+
+
+<body>
+    <header class="flex h-20 items-center justify-between p-4 border-b border-gray-300">
+        <img class="h-18" src="./assets/icons/logo.png" alt="E-Mart Logo" role="img"
+            onerror="this.onerror=null; this.style.display='none'">
+        <nav class="flex gap-7 text-lg font-medium">
+            <a class="hover:underline " href="./index.html">Home</a>
+            <a class="hover:underline " href="">Shop</a>
+            <a class="hover:underline " href="">Pages</a>
+            <a class="hover:underline " href="">Blogs</a>
+            <a class="hover:underline " href="">Elements</a>
+            <a class="hover:underline " href="">Buy</a>
+            <a>Admin</a>
+        </nav>
+        <div class="flex ">
+            <div
+                class="relative flex items-center border border-gray-300 rounded-full px-3 py-1 focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500 transition-all">
+                <img class="h-6 w-6 opacity-50" src="./assets/icons/search icon.png" alt="search icon">
+                <input type="text" id="search-input" placeholder="Search..."
+                    class="ml-2 outline-none bg-transparent placeholder-gray-500 w-32 focus:w-64 transition-all duration-300">
+            </div>
+            <a class="hover:underline text-blue-600 font-semibold" href="admin.html"> <img class="h-10"
+                    src="./assets/icons/user icon.png" alt="user icon"
+                    onerror="this.onerror=null; this.style.display='none'"></a>
+            <a href=""> <img class="h-10" src="./assets/icons/heart icon.png" alt="heart icon"
+                    onerror="this.onerror=null; this.style.display='none'"></a>
+            <a href=""> <img class="h-10" src="./assets/icons/cart icon.png" alt="cart icon"
+                    onerror="this.onerror=null; this.style.display='none'"></a>
+        </div>
+    </header>
+    <!-- Search Results Section -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl font-bold text-gray-800 mb-2">Search Results</h2>
+                <p id="search-results-count" class="text-gray-600">Found 0 products</p>
+            </div>
+
+            <!-- Product Grid Container -->
+            <div id="product-container">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <script src="products-data.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>

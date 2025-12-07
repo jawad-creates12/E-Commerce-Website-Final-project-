@@ -227,3 +227,19 @@ body {
     padding: 0.5rem;
   }
 }
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+.card1{
+    width: 70px;
+    background-color: rgb(230, 230, 230);
+    height: 150px;
+
+
+}
