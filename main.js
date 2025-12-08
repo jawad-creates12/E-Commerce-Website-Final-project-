@@ -206,4 +206,34 @@
       }
     }
   });
+
+  // Dark Mode Logic
+  window.toggleDarkMode = function () {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDark);
+    updateThemeIcon(isDark);
+  };
+
+  function updateThemeIcon(isDark) {
+    const icon = document.getElementById('theme-icon');
+    if (!icon) return;
+
+    if (isDark) {
+      // Sun icon for dark mode (to switch back to light)
+      icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />';
+    } else {
+      // Moon icon for light mode (to switch to dark)
+      icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />';
+    }
+  }
+
+  // Initialize Dark Mode on load
+  const isDark = localStorage.getItem('darkMode') === 'true';
+  if (isDark) {
+    document.body.classList.add('dark-mode');
+    // We might need to wait for DOM to update icon if script runs too early, but usually main.js is at end of body
+    updateThemeIcon(true);
+  }
+
 })();

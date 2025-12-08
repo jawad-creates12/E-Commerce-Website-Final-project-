@@ -240,6 +240,74 @@ html, body{
     width: 70px;
     background-color: rgb(230, 230, 230);
     height: 150px;
+}
 
+/* Dark Mode Overrides */
+body.dark-mode {
+    background-color: #111827 !important; /* gray-900 */
+    color: #f3f4f6 !important; /* gray-100 */
+}
 
+/* Base backgrounds */
+body.dark-mode .bg-white,
+body.dark-mode header.bg-\[\#FFFFFF\],
+body.dark-mode .bg-gray-50 {
+    background-color: #1f2937 !important; /* gray-800 */
+    color: #f3f4f6 !important;
+}
+
+body.dark-mode .bg-gray-100,
+body.dark-mode section.bg-\[\#D9D9D9\],
+body.dark-mode footer.bg-\[\#D9D9D9\] {
+    background-color: #374151 !important; /* gray-700 */
+    color: #f3f4f6 !important;
+}
+
+body.dark-mode .bg-gray-200 {
+    background-color: #4b5563 !important; /* gray-600 */
+}
+
+/* Borders */
+body.dark-mode .border-gray-300,
+body.dark-mode .border-gray-200,
+body.dark-mode .border-\[\#D9D9D9\] {
+    border-color: #4b5563 !important;
+}
+
+/* Text Colors */
+body.dark-mode .text-gray-800,
+body.dark-mode .text-black {
+    color: #f3f4f6 !important;
+}
+
+body.dark-mode .text-gray-600,
+body.dark-mode .text-gray-500 {
+    color: #d1d5db !important; /* gray-300 */
+}
+
+/* Specific Element Overrides */
+body.dark-mode input[type="text"] {
+    background-color: #374151 !important;
+    color: white !important;
+    border-color: #4b5563 !important;
+}
+
+body.dark-mode input::placeholder {
+    color: #9ca3af !important;
+}
+
+/* Invert icons to be white */
+body.dark-mode header img,
+body.dark-mode footer img {
+    filter: brightness(0) invert(1);
+}
+
+body.dark-mode .product-card {
+    background-color: #1f2937 !important;
+    color: white !important;
+}
+
+body.dark-mode .modal-content {
+    background-color: #1f2937 !important;
+    color: white !important;
 }
