@@ -128,7 +128,7 @@ function updateDashboard() {
 
     if (recentList) {
         recentList.innerHTML = recentProducts.map(p => `
-            <div class="flex items-center gap-4 p-3 border-b last:border-b-0 hover:bg-gray-50">
+            <div class="flex items-center gap-4  border-b last:border-b-0 hover:bg-gray-50" style="padding: 1rem;" >
                 <img src="${p.image}" alt="${p.name}" class="w-12 h-12 object-cover rounded" onerror="this.onerror=null; this.src='./assets/icons/image.png'">
                 <div class="flex-1">
                     <h4 class="font-medium">${p.name}</h4>

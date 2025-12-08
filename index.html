@@ -14,35 +14,37 @@
 
 </head>
 <style>
-         h1 {
+    h1 {
         font-family: "Montserrat", sans-serif;
     }
-    h2, h3 {
+
+    h2,
+    h3 {
         font-family: "Sora", sans-serif;
     }
-
 </style>
 
 
 
 <body>
-    <header class="flex h-20 items-center justify-between bg-[#FFFFFF] p-4 border-b border-gray-300">
+    <header class="flex h-20 items-center justify-around gap-[15%] bg-[#FFFFFF] p-4 border-b border-gray-300">
         <img class="h-18" src="./assets/icons/logo.png" alt="E-Mart Logo" role="img"
             onerror="this.onerror=null; this.style.display='none'">
-       
-        <div class="flex ">
-            <div
-                class="relative flex items-center border border-gray-300 rounded-full px-3 py-1 focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500 transition-all">
-                <img class="h-6 w-6 opacity-50" src="./assets/icons/search icon.png" alt="search icon">
-                <input type="text" id="search-input" placeholder="Search..."
-                    class="ml-2 outline-none bg-transparent placeholder-gray-500 w-32 focus:w-64 transition-all duration-300">
-            </div>
-            <a class="hover:underline text-blue-600 font-semibold" href="admin.html"> <img class="h-10"
+
+
+        <div style="padding: 0rem 1rem;"
+            class="relative flex items-center border border-gray-300 rounded-4xl focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500 transition-all">
+            <img class="h-6 w-6 opacity-50" src="./assets/icons/search icon.png" alt="search icon">
+            <input type="text" id="search-input" placeholder="Search..."
+                class="ml-2  outline-none bg-transparent placeholder-gray-500 w-82 h-10  transition-all duration-300">
+        </div>
+        <div class="flex gap-3 items-center">
+            <a class="hover:underline text-blue-600 font-semibold" href="admin.html"> <img class="h-8 hover:scale-120"
                     src="./assets/icons/user icon.png" alt="user icon"
                     onerror="this.onerror=null; this.style.display='none'"></a>
-            <a href=""> <img class="h-10" src="/assets/icons/heart icon.png" alt="heart icon"
+            <a href="whishlist.html"> <img class="h-10 hover:scale-120" src="./assets/icons/heart logo.png" alt="heart icon"
                     onerror="this.onerror=null; this.style.display='none'"></a>
-            <a href=""> <img class="h-10" src="./assets/icons/cart icon.png" alt="cart icon"
+            <a href="cart.html"> <img class="h-10 hover:scale-120" src="./assets/icons/cart icon.png" alt="cart icon"
                     onerror="this.onerror=null; this.style.display='none'"></a>
         </div>
     </header>
@@ -52,20 +54,22 @@
             <h1 class="text-6xl" style="font-family: 'Rochester', cursive ; ">Season Sale</h1>
             <h2 class="text-3xl">Min. 53-70%off</h2>
             <div style="display: flex; gap: 1rem; margin-top: 1rem;">
-                 <button class="bg-blue-600 text-white px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-blue-700 hover:scale-105 cursor-pointer">
-  SHOP NOW
-</button>
-                    
-                     <button class="border border-gray-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-blue-600 hover:text-white hover:border-blue-600 cursor-pointer">
-  READ MORE
-</button>
+                <button style="padding: 0.5rem;"
+                    class="bg-blue-600 text-white rounded transition duration-300 ease-in-out hover:bg-blue-700 hover:scale-105 cursor-pointer">
+                    SHOP NOW
+                </button>
+
+                <button style="padding: 0.5rem;"
+                    class="border border-gray-800 rounded transition duration-300 ease-in-out hover:bg-blue-600 hover:text-white hover:border-blue-600 cursor-pointer">
+                    READ MORE
+                </button>
             </div>
         </div>
         <div><img src="./assets/images/imgi_7_home-5-slider-2 (1).png" alt="Baner_image" style="height: 25rem;"
                 onerror="this.onerror=null; this.style.display='none'"></div>
     </section>
-    <section class="border-y border-gray-300">
-        <div class="mx-auto max-w-7xl px-6 py-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <section class=" flex justify-center items-center border-y border-gray-300 h-20">
+        <div class="flex gap-12 justify-center items-center ">
             <div class="flex items-center gap-3">
                 <img src="/assets/icons/image.png" alt="Free Shipping" class="h-8 w-8">
                 <div>
@@ -112,12 +116,12 @@
         </div>
     </section>
 
-     <section>
+    <section>
         <div class="flex justify-center items-center">
-           
-           <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-  Best Brands
-</h1>
+
+            <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Best Brands
+            </h1>
         </div>
         <div class="h-16 bg-gray-200 font-bold flex justify-center items-center gap-6">
             <h1>Orients</h1>
@@ -134,14 +138,14 @@
             <h2 class="text-white">Subscribe today and get special offers, coupin and more</h2>
         </div>
         <div>
-            <input 
-  type="text" 
-  placeholder="Enter your E-mail address" 
-  class="h-10  bg-white border border-gray-300 rounded-full px-6 py-3 text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
->
+            <input type="text" placeholder="Enter your E-mail address" style="padding: 0.5rem 1rem;"
+                class="h-12 w-90  bg-white border border-gray-300 rounded-full text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
         </div>
-        <div class="bg-[#FFA600] text-white rounded-full h-10 w-30 flex justify-center items-center font-bold">
-            <h2 class="border-gray-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:bg-black hover:text-white hover:border-blue-600 cursor-pointer">SUBSCRIBE</h2>
+        <div
+            class="bg-[#FFA600] text-white rounded-full h-10 w-30 flex justify-center items-center font-bold hover:scale-110 transition duration-300 ease-in-out">
+            <button
+                class="border-gray-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-white   cursor-pointer ">
+                SUBSCRIBE</button>
         </div>
     </section>
     <footer class=" h-120 w-full bg-[#D9D9D9] flex flex-col justify-around">
@@ -185,9 +189,9 @@
 
 
             <div class="flex flex-col gap-2 font-bold justify-center items-center font-sriracha">
-  <p>Credit by - Bano Qabil, Shiwal</p>
-  <p>Created by- Abdul Rafey, Jawad Ashraf, Muhammad Zeeshan</p>
-</div>
+                <p>Credit by - Bano Qabil, Shiwal</p>
+                <p>Created by- Abdul Rafey, Jawad Ashraf, Muhammad Zeeshan</p>
+            </div>
 
             <div>
                 <p class="text-center text-gray-800">© 2025 www.E-Mart.com. All Rights Reserved.</p>

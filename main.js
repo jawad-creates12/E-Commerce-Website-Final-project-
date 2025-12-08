@@ -32,7 +32,7 @@
     card.className = 'product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300';
 
     card.innerHTML = `
-            <div class="relative h-64 overflow-hidden bg-gray-100">
+            <div class="relative h-64 overflow-hidden bg-gray-100 cursor-pointer">
                 <img 
                     src="${product.image || './assets/icons/image.png'}" 
                     alt="${product.name}"
@@ -41,7 +41,7 @@
                 >
                 ${product.stock < 10 ? '<span class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded text-xs">Low Stock</span>' : ''}
             </div>
-            <div class="p-4">
+            <div style="padding: 1rem; cursor-pointer">
                 <div class="flex justify-between items-start mb-2">
                     <h3 class="text-lg font-semibold text-gray-800 line-clamp-1">${product.name}</h3>
                     <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">${product.category}</span>
@@ -51,20 +51,71 @@
                     <span class="text-sm text-gray-500">${product.brand}</span>
                     <span class="text-xs text-gray-400">Stock: ${product.stock}</span>
                 </div>
-                <div class="flex justify-between items-center">
-                    <span class="text-2xl font-bold text-blue-600">Rs.${product.price.toFixed(2)}</span>
-                    <button 
-                        onclick="alert('Product added to cart!')"
-                        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium"
-                    >
-                        Add to Cart
-                    </button>
+            <div class="flex justify-between items-center">
+                    <span class="text-2xl font-bold text-blue-600 cursor-pointer">Rs. ${Math.round(product.price)}</span>
+                    <div class="flex gap-2 items-center">
+                        <button 
+                            onclick="window.addToWishlist(${product.id})" 
+                            class="p-2 text-gray-400 hover:text-red-500 transition-colors duration-200"
+                            title="Add to Wishlist"
+                        >
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </button>
+                        <button 
+                            onclick="window.addToCart(${product.id})" style="padding: 0.2rem 0.5rem; cursor-pointer"
+                            class="bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 text-sm font-medium"
+                        >
+                            Add to Cart
+                        </button>
+                    </div>
                 </div>
             </div>
         `;
 
     return card;
   }
+
+  // Cart and Wishlist Logic
+  window.addToCart = function (productId) {
+    const products = getProducts();
+    const product = products.find(p => p.id === productId);
+
+    if (product) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const existingItem = cart.find(item => item.id === productId);
+
+      if (existingItem) {
+        existingItem.quantity = (existingItem.quantity || 1) + 1;
+        alert(`${product.name} quantity updated in cart`);
+      } else {
+        cart.push({ ...product, quantity: 1 });
+        alert(`${product.name} added to cart`);
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      // Dispatch event for UI updates if needed
+      window.dispatchEvent(new Event('cartUpdated'));
+    }
+  };
+
+  window.addToWishlist = function (productId) {
+    const products = getProducts();
+    const product = products.find(p => p.id === productId);
+
+    if (product) {
+      let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+      if (!wishlist.some(item => item.id === productId)) {
+        wishlist.push(product);
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        alert(`${product.name} added to wishlist`);
+      } else {
+        alert('Item already in wishlist');
+      }
+    }
+  };
 
   // Function to display products on the homepage
   function showProductContainer(products) {
