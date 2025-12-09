@@ -257,11 +257,14 @@ body.dark-mode .bg-gray-50 {
 }
 
 body.dark-mode .bg-gray-100,
-body.dark-mode section.bg-\[\#D9D9D9\],
-body.dark-mode footer.bg-\[\#D9D9D9\] {
+body.dark-mode section.bg-\[\#D9D9D9\]{
     background-color: #374151 !important; /* gray-700 */
     color: #f3f4f6 !important;
 }
+body.dark-mode footer.bg-\[\#D9D9D9\] {
+    background-color: #08152b !important; /* gray-700 */
+    color: #f3f4f6 !important;
+  }
 
 body.dark-mode .bg-gray-200 {
     background-color: #4b5563 !important; /* gray-600 */
