@@ -14,6 +14,11 @@
 
 </head>
 <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
     h1 {
         font-family: "Montserrat", sans-serif;
     }
@@ -21,99 +26,154 @@
     h2,
     h3 {
         font-family: "Sora", sans-serif;
+
+    }
+
+    .marquee-wrapper {
+        overflow: hidden;
+        opacity: 0;
+    }
+
+    .marquee-ready .marquee-wrapper {
+        opacity: 1;
+        transition: opacity .3s;
+    }
+
+    @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    .animate-marquee {
+        display: flex;
+        width: max-content;
+        animation: marquee 20s linear infinite;
+    }
+
+    .animate-marquee:hover {
+        animation-play-state: paused;
     }
 </style>
 
 
 
 <body>
-    <header class="flex h-20 items-center justify-around gap-[15%] bg-[#FFFFFF] p-4 border-b border-gray-300">
-        <img class="h-18" src="./assets/icons/logo.png" alt="E-Mart Logo" role="img"
-            onerror="this.onerror=null; this.style.display='none'">
+    <header
+        class="flex h-14 sm:h-16 items-center justify-between lg:justify-around gap-2 md:gap-[15%] bg-white px-2 py-2 sm:p-4 border-b border-gray-300 text-xs sm:text-base">
 
+        <!-- Logo -->
+        <a href="index.html" aria-label="E-Mart Home">
+            <img class="h-10 sm:h-18 max-h-10 sm:max-h-14 w-auto" src="./assets/icons/logo.png" alt="E-Mart Logo"
+                onerror="this.onerror=null; this.style.display='none'">
+        </a>
 
-        <div style="padding: 0rem 1rem;"
-            class="relative flex items-center border border-gray-300 rounded-4xl focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500 transition-all">
-            <img class="h-6 w-6 opacity-50" src="./assets/icons/search icon.png" alt="search icon">
-            <input type="text" id="search-input" placeholder="Search..." style="margin-left: 8px; padding-left: 4px;" 
-                class="  outline-none bg-transparent placeholder-gray-500 w-82 h-10  transition-all duration-300">
+        <!-- Search Bar -->
+        <div class="relative flex items-center border border-gray-300 rounded-full 
+        focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500 transition-all
+        px-2 sm:px-4 py-1 sm:py-0">
+
+            <img class="h-4 w-4 sm:h-6 sm:w-6 opacity-50" src="./assets/icons/search icon.png" alt="Search Icon">
+
+            <input type="text" id="search-input" placeholder="Search..." aria-label="Search products"
+                class="outline-none bg-transparent placeholder-gray-500 w-32 sm:w-120 h-8 sm:h-10 text-xs sm:text-base transition-all duration-300 ml-1 sm:ml-2">
         </div>
-        <div class="flex gap-5 items-center">
-            <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-gray-100 transition-colors"
-                title="Toggle Dark Mode">
-                <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
+
+        <!-- Right Icons -->
+        <nav class="flex gap-2 sm:gap-5 items-center">
+            <button onclick="toggleDarkMode()" class="p-1 sm:p-2 rounded-full hover:bg-gray-100 transition-colors"
+                title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+                <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                 </svg>
             </button>
-            <a class="hover:underline text-blue-600 font-semibold" href="admin.html"> <img class="h-8 hover:scale-120"
-                    src="./assets/icons/user icon.png" alt="user icon"
-                    onerror="this.onerror=null; this.style.display='none'"></a>
-            <a href="whishlist.html"> <img class="h-10 hover:scale-120" src="./assets/icons/heart logo.png"
-                    alt="heart icon" onerror="this.onerror=null; this.style.display='none'"></a>
-            <a href="cart.html"> <img class="h-12 hover:scale-120" src="./assets/icons/cart icon.png" alt="cart icon"
-                    onerror="this.onerror=null; this.style.display='none'"></a>
-        </div>
-    </header>
-    <section style=" background-color: #D9D9D9 !important;" class=" h-100 flex justify-around items-center gap-20">
 
-        <div class="Hero_Section_Heading ">
-            <h1 class="text-6xl text-[#000]" style="font-family: 'Rochester', cursive ; ">Season Sale</h1>
-            <h2 class="text-3xl text-[#000]">Min. 53-70%off</h2>
-            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
-                <button style="padding: 0.5rem;"
-                    class="bg-blue-600 text-white rounded transition duration-300 ease-in-out hover:bg-blue-700 hover:scale-105 cursor-pointer text-[#000]">
+            <a class="hover:underline text-blue-600 font-semibold" href="admin.html" aria-label="User Account">
+                <img class="h-6 sm:h-8 hover:scale-120" src="./assets/icons/user icon.png" alt="User Icon"
+                    onerror="this.onerror=null; this.style.display='none'">
+            </a>
+
+            <a href="whishlist.html" aria-label="Wishlist">
+                <img class="h-7 sm:h-10 hover:scale-120" src="./assets/icons/heart logo.png" alt="Wishlist Icon"
+                    onerror="this.onerror=null; this.style.display='none'">
+            </a>
+
+            <a href="cart.html" aria-label="Shopping Cart">
+                <img class="h-8 sm:h-12 hover:scale-120" src="./assets/icons/cart icon.png" alt="Cart Icon"
+                    onerror="this.onerror=null; this.style.display='none'">
+            </a>
+        </nav>
+
+    </header>
+    <section style=" background-color: #D9D9D9 !important;"
+        class="h-48 sm:h-64 md:h-100 flex flex-row justify-around items-center gap-2 md:gap-20 px-2 transition-all">
+
+        <div class="Hero_Section_Heading">
+            <h1 class="text-3xl sm:text-4xl md:text-6xl text-[#000]" style="font-family: 'Rochester', cursive;">Season
+                Sale</h1>
+            <h2 class="text-sm sm:text-xl md:text-3xl text-[#000]">Min. 53-70%off</h2>
+            <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                <button style="padding: 0.25rem 0.5rem;"
+                    class="text-xs  md:text-sm h-6 sm:h-8 bg-blue-600 text-white text-xs sm:text-base rounded transition duration-300 ease-in-out hover:bg-blue-700 hover:scale-105 cursor-pointer text-[#000]">
                     SHOP NOW
                 </button>
 
-                <button style="padding: 0.5rem;"
-                    class="border border-gray-800 rounded transition duration-300 ease-in-out hover:bg-blue-600 hover:text-white hover:border-blue-600 cursor-pointer text-[#000]">
+                <button style="padding: 0.25rem 0.5rem;"
+                    class="text-xs  md:text-sm h-6 sm:h-8 border border-gray-800 text-xs sm:text-base rounded transition duration-300 ease-in-out hover:bg-blue-600 hover:text-white hover:border-blue-600 cursor-pointer text-[#000]">
                     READ MORE
                 </button>
             </div>
         </div>
-        <div><img src="./assets/images/imgi_7_home-5-slider-2 (1).png" alt="Baner_image" style="height: 25rem;"
+        <div><img src="./assets/images/imgi_7_home-5-slider-2 (1).png" alt="Baner_image"
+                class="h-48  md:h-[25rem] object-contain transition-all"
                 onerror="this.onerror=null; this.style.display='none'"></div>
     </section>
-    <section class=" flex justify-around  items-center border-y border-gray-300 h-20">
-        
-            <div class="flex items-center gap-3">
-                <img src="/assets/icons/image.png" style="filter: contrast(5);" alt="Free Shipping" class="h-10 ">
-                <div>
-                    <p class="font-semibold">Free Shipping</p>
-                    <p class="text-sm text-gray-600">On all orders over Rs. 500</p>
-                </div>
+
+    <section
+        class="flex flex-row overflow-x-auto md:justify-around items-center border-y border-gray-300 py-2 gap-5 md:gap-20 px-4 snap-x overflow-hidden">
+
+        <div class="flex items-center gap-2 min-w-max snap-start">
+            <img src="/assets/icons/image.png" style="filter: contrast(5);" alt="Free Shipping" class="h-6 md:h-10 ">
+            <div>
+                <p class="font-semibold text-xs md:text-base">Free Shipping</p>
+                <p class="text-[8px] md:text-sm text-gray-600">On all orders over Rs. 500</p>
             </div>
-            <div class="flex items-center gap-3">
-                <img src="/assets/icons/handshake.png" alt="Secure Payment" style="padding-top: 4px;" class="h-12">
-                <div>
-                    <p class="font-semibold">Secure Payment</p>
-                    <p class="text-sm text-gray-600">We ensure safe checkout</p>
-                </div>
+        </div>
+        <div class="flex items-center gap-2 min-w-max snap-start">
+            <img src="/assets/icons/handshake.png" alt="Secure Payment" style="padding-top: 4px;" class="h-6 md:h-10">
+            <div>
+                <p class="font-semibold text-xs md:text-base">Secure Payment</p>
+                <p class="text-[8px] md:text-sm text-gray-600">We ensure safe checkout</p>
             </div>
-            <div class="flex items-center gap-3">
-                <img src="/assets/icons/save-money.png" alt="Money Back" class="h-10">
-                <div>
-                    <p class="font-semibold">100% Money Back</p>
-                    <p class="text-sm text-gray-600">30 days return policy</p>
-                </div>
+        </div>
+        <div class="flex items-center gap-2 min-w-max snap-start">
+            <img src="/assets/icons/save-money.png" alt="Money Back" class="h-6 md:h-10">
+            <div>
+                <p class="font-semibold text-xs md:text-base">100% Money Back</p>
+                <p class="text-[8px] md:text-sm text-gray-600">30 days return policy</p>
             </div>
-            <div class="flex items-center gap-3">
-                <img src="/assets/icons/message.png" alt="Support" class="h-8 w-8">
-                <div>
-                    <p class="font-semibold">Online Support</p>
-                    <p class="text-sm text-gray-600">24/7 dedicated support</p>
-                </div>
+        </div>
+        <div class="flex items-center gap-2 min-w-max snap-start">
+            <img src="/assets/icons/message.png" alt="Support" class="h-6 md:h-10">
+            <div>
+                <p class="font-semibold text-xs md:text-base">Online Support</p>
+                <p class="text-[8px] md:text-sm text-gray-600">24/7 dedicated support</p>
             </div>
+        </div>
     </section>
 
     <!-- Products Section -->
     <section class="py-12">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-10">
-                <h2 class="text-4xl font-bold text-gray-800 mb-2">Featured Products</h2>
-                <p class="text-gray-600">Discover our latest collection of premium products</p>
+            <div class="text-center mb-6 md:mb-10">
+                <h2 class="text-2xl md:text-4xl font-bold text-gray-800 mb-1 md:mb-2">Featured Products</h2>
+                <p class="text-xs md:text-base text-gray-600">Discover our latest collection of premium products</p>
             </div>
 
             <!-- Product Grid Container -->
@@ -122,88 +182,134 @@
             </div>
         </div>
     </section>
-
     <section>
+        <!-- Best Brands Title -->
         <div class="flex justify-center items-center">
-
-            <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h2 class="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+                aria-label="Best Brands">
                 Best Brands
-            </h1>
+            </h2>
         </div>
-        <div class="h-16 bg-gray-200 font-bold flex justify-center items-center gap-6">
-            <h1>Orients</h1>
-            <h1>Rosatta</h1>
-            <h1>Stratch</h1>
-            <h1>Reduax</h1>
-            <h1>Canna</h1>
-            <h1>Agritect</h1>
-        </div>
-    </section>
-    <section class=" h-23 w-full bg-[#6366FF] flex justify-center items-center gap-6 mt-5">
-        <div class="flex  items-center flex-col gap-3">
-            <h1 class="text-2xl font-bold text-white">Subscribe To Our newsleter</h1>
-            <h2 class="text-white">Subscribe today and get special offers, coupin and more</h2>
-        </div>
-        <div>
-            <input type="text" placeholder="Enter your E-mail address" style="padding: 0.5rem 1rem;"
-                class="h-12 w-90  bg-white border border-gray-300 rounded-full text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-        </div>
+
+        <!-- Brand List -->
         <div
-            class="bg-[#FFA600] text-white rounded-full h-10 w-30 flex justify-center items-center font-bold hover:scale-110 transition duration-300 ease-in-out">
-            <button
-                class="border-gray-800 px-4 py-2 rounded transition duration-300 ease-in-out hover:text-white   cursor-pointer ">
-                SUBSCRIBE</button>
+            class="h-10 md:h-16 bg-gray-100  font-bold flex justify-center items-center gap-4 md:gap-6 text-center py-4 overflow-hidden ">
+            <h3 class="text-xs md:text-2xl">Orients</h3>
+            <h3 class="text-xs md:text-2xl">Rosatta</h3>
+            <h3 class="text-xs md:text-2xl">Stratch</h3>
+            <h3 class="text-xs md:text-2xl">Reduax</h3>
+            <h3 class="text-xs md:text-2xl">Canna</h3>
+            <h3 class="text-xs md:text-2xl">Agritect</h3>
         </div>
     </section>
-    <footer class=" h-120 w-full bg-[#D9D9D9] flex flex-col justify-around">
-        <div class="flex justify-center items-center gap-30">
-            <div class="flex flex-col gap-8 px-2 py-10">
-                <div class="flex flex-col gap-1">
-                    <h1 class="font-bold">E-MART</h1>
-                    <p>E-Mart is a modern online store offering high-quality</p>
-                    <p>products at competitive prices.</p>
-                </div>
-                <div class="flex items-center gap-2"><img src="/assets/icons/home.png" alt="" class="h-6 w-6">
-                    <p>Street No.4 Bhutto Nagar Sahiwal, Pakistan</p>
-                </div>
-                <div class="flex items-center gap-2"><img src="/assets/icons/telephone.png" alt="" class="h-6 w-6">
-                    <a>Phone: +92 320 6912491</a>
-                </div>
-                <div class="flex items-center gap-2"><img src="/assets/icons/mail.png" alt="" class="h-6 w-6">
-                    <p>Email: itsstranger.com</p>
-                </div>
-                <div class="flex items-center gap-2"><img src="/assets/icons/clock.png" alt="" class="h-6 w-6">
-                    <p>Mon - Fri / 9:00 AM - 6:00 PM</p>
-                </div>
+
+
+    <!-- Subscribe Section -->
+    <section class="h-28 md:h-23 w-full bg-[#6366FF] flex justify-around items-center mt-5 text-center px-4 py-6">
+
+        <div class="flex items-center flex-col gap-3">
+            <h2 class="text-lg md:text-2xl font-bold text-white text-center" aria-label="Subscribe to our newsletter">
+                Subscribe To Our newsletter
+            </h2>
+            <h3 class="text-xs md:text-base text-white text-center">
+                Subscribe today and get special offers, coupon and more
+            </h3>
+        </div>
+        <div class="flex items-center flex-wrap gap-2 justify-center">
+            <div>
+                <input type="email" aria-label="Email address" placeholder="Enter your E-mail address"
+                    style="padding: 0.5rem 1rem;" class="h-8 md:h-12 w-90 text-xs md:text-base bg-white border border-gray-300 rounded-3xl 
+            text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+            md:w-72 sm:w-60 w-full">
             </div>
-            <div class="flex flex-col gap-8">
-                <h1 class="font-bold">Information</h1>
-                <a href="" class="text-gray-800  no-underline">About Us</a>
-                <a href="" class="text-gray-800">Store location</a>
-                <a href="" class="text-gray-800">Latest news</a>
-                <a href="#" class="text-gray-800">Contact Us</a>
-                <a href="" class="text-gray-800">Opening and closing time</a>
-            </div>
-            <div class="flex flex-col gap-8">
-                <h1 class="font-bold">My Account</h1>
-                <a href="#" class="text-gray-800  no-underline">Shop</a>
-                <a href="#" class="text-gray-800">Buy</a>
-                <a href="#" class="text-gray-800">Pages</a>
-                <a href="#" class="text-gray-800">Home</a>
+
+            <div class="bg-[#FFA600] text-white rounded-2xl text-xs  md:text-sm h-6 md:h-8 flex justify-center items-center 
+        font-bold hover:scale-110 transition duration-300 ease-in-out">
+                <button aria-label="Subscribe" style="padding: 0.5rem 1rem;"
+                    class="rounded-2xl transition duration-300 ease-in-out cursor-pointer">
+                    SUBSCRIBE
+                </button>
             </div>
         </div>
-        <div class="flex flex-col gap-2">
+    </section>
 
+    <!-- footer -->
 
-            <div class="flex flex-col gap-2 font-bold justify-center items-center font-sriracha">
+    <footer class="w-full bg-[#D9D9D9] flex flex-col justify-around">
+
+        <!-- Top Section -->
+        <div style="padding: 2rem;" class="flex justify-around items-start gap-3 md:gap-1 text-center md:text-left">
+
+            <!-- Column 1 -->
+            <div class="flex flex-col gap-4 px-2">
+                <div class="flex flex-col gap-1">
+                    <h1 class="font-bold text-xl" aria-label="E-Mart footer brand name">E-MART</h1>
+                    <p class="text-xs md:text-sm">E-Mart is a modern online store offering high-quality</p>
+                    <p class="text-xs md:text-sm">products at competitive prices.</p>
+                </div>
+
+                <!-- CLICKABLE MAP -->
+                <a href="https://www.google.com/maps/search/Street+No.4+Bhutto+Nagar+Sahiwal+Pakistan" target="_blank"
+                    class="flex items-center gap-2 justify-center md:justify-start hover:text-blue-600 transition"
+                    aria-label="Open location in Google Maps">
+                    <img src="/assets/icons/home.png" alt="Location icon" class="h-6 w-6">
+                    <p class="text-xs md:text-sm">Street No.4 Bhutto Nagar Sahiwal, Pakistan</p>
+                </a>
+
+                <!-- CLICKABLE PHONE -->
+                <a href="tel:+923206912491"
+                    class="flex items-center gap-2 justify-center md:justify-start hover:text-blue-600 transition"
+                    aria-label="Phone number">
+                    <img src="/assets/icons/telephone.png" alt="Phone icon" class="h-6 w-6 text-xs md:text-sm">
+                    Phone: +92 320 6912491
+                </a>
+
+                <!-- CLICKABLE EMAIL -->
+                <a href="mailto:itsstranger.com"
+                    class="flex items-center gap-2 justify-center md:justify-start hover:text-blue-600 transition"
+                    aria-label="Email address">
+                    <img src="/assets/icons/mail.png" alt="Email icon" class="h-6 w-6 text-xs md:text-sm">
+                    Email: itsstranger.com
+                </a>
+
+            </div>
+
+            <!-- Column 2 -->
+            <div class="flex flex-col gap-3 mt-10 md:mt-0">
+                <h1 class="font-bold text-xl">Information</h1>
+                <a href="#" class="footer-link hover:text-blue-600 transition hover:underline">About Us</a>
+                <a href="#" class="footer-link hover:text-blue-600 transition hover:underline">Store location</a>
+                <a href="#" class="footer-link hover:text-blue-600 transition hover:underline">Latest news</a>
+                <a href="#" class="footer-link hover:text-blue-600 transition hover:underline">Contact Us</a>
+                <a href="#" class="footer-link hover:text-blue-600 transition hover:underline">Opening and closing
+                    time</a>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="flex flex-col gap-3 mt-10 md:mt-0">
+                <h1 class="font-bold text-xl">My Account</h1>
+                <a href="#" class="footer-link hover:text-blue-600 transition hover:underline">Shop</a>
+                <a href="#" class="footer-link hover:text-blue-600 transition hover:underline">Buy</a>
+                <a href="#" class="footer-link hover:text-blue-600 transition hover:underline">Pages</a>
+                <a href="#" class="footer-link hover:text-blue-600 transition hover:underline">Home</a>
+            </div>
+
+        </div>
+
+        <!-- Bottom Section -->
+        <div style="padding: 1rem;" class="flex flex-col gap-4 text-center">
+
+            <div class="flex flex-col gap-2 font-bold font-sriracha">
                 <p>Credit by - Bano Qabil, Shiwal</p>
-                <p>Created by- Abdul Rafey, Jawad Ashraf, Muhammad Zeeshan</p>
+                <p>Created by - Abdul Rafey, Jawad Ashraf, Muhammad Zeeshan</p>
             </div>
 
             <div>
                 <p class="text-center text-gray-800">© 2025 www.E-Mart.com. All Rights Reserved.</p>
             </div>
+
         </div>
+
     </footer>
 
     <script src="products-data.js"></script>
