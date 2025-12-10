@@ -32,7 +32,7 @@
     card.className = 'product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300';
 
     card.innerHTML = `
-            <div class="relative h-64 overflow-hidden bg-gray-100 cursor-pointer">
+            <div class="relative h-24 md:h-64 overflow-hidden bg-gray-100 cursor-pointer">
                 <img 
                     src="${product.image || './assets/icons/image.png'}" 
                     alt="${product.name}"
@@ -43,16 +43,16 @@
             </div>
             <div style="padding: 1rem; cursor-pointer">
                 <div class="flex justify-between items-start mb-2">
-                    <h3 class="text-lg font-semibold text-gray-800 line-clamp-1">${product.name}</h3>
-                    <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">${product.category}</span>
+                    <h3 class=" md:text-lg text-sm    font-semibold text-gray-800 line-clamp-1">${product.name}</h3>
+                    <span class="text-xs  bg-blue-100 text-blue-800 px-2 py-1 rounded">${product.category}</span>
                 </div>
-                <p class="text-sm text-gray-600 mb-2 line-clamp-2">${product.description || 'No description available'}</p>
+                <p class=" md:text-sm text-xs  text-gray-600 mb-2 line-clamp-2">${product.description || 'No description available'}</p>
                 <div class="flex justify-between items-center mb-3">
-                    <span class="text-sm text-gray-500">${product.brand}</span>
+                    <span class=" md:text-sm text-xs  text-gray-500">${product.brand}</span>
                     <span class="text-xs text-gray-400">Stock: ${product.stock}</span>
                 </div>
             <div class="flex justify-between items-center">
-                    <span class="text-2xl font-bold text-blue-600 cursor-pointer">Rs. ${Math.round(product.price)}</span>
+                    <span class=" md:text-2xl text-lg font-bold text-blue-600 cursor-pointer">Rs. ${Math.round(product.price)}</span>
                     <div class="flex gap-2 items-center">
                         <button 
                             onclick="window.addToWishlist(${product.id})" 
@@ -65,7 +65,7 @@
                         </button>
                         <button 
                             onclick="window.addToCart(${product.id})" style="padding: 0.2rem 0.5rem; cursor-pointer"
-                            class="bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 text-sm font-medium"
+                            class="bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 text-xs md:text-sm font-medium"
                         >
                             Add to Cart
                         </button>

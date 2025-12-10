@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="src/output.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="icon" type="image/x-icon" href="/assets/icons/fav icon.png">
+
 
 </head>
 <style>
@@ -64,7 +66,7 @@
 
 <body>
     <header
-        class="flex h-14 sm:h-16 items-center justify-between lg:justify-around gap-2 md:gap-[15%] bg-white px-2 py-2 sm:p-4 border-b border-gray-300 text-xs sm:text-base">
+        class="flex h-14 sm:h-16 items-center justify-between lg:justify-around gap-2  bg-white px-2 py-2 sm:p-4 border-b border-gray-300 text-xs sm:text-base">
 
         <!-- Logo -->
         <a href="index.html" aria-label="E-Mart Home">
@@ -73,14 +75,12 @@
         </a>
 
         <!-- Search Bar -->
-        <div class="relative flex items-center border border-gray-300 rounded-full 
-        focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500 transition-all
-        px-2 sm:px-4 py-1 sm:py-0">
+        <div style="padding: 0 4px;" class="relative flex items-center border border-gray-300 rounded-full 
+        focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500 transition-all">
 
             <img class="h-4 w-4 sm:h-6 sm:w-6 opacity-50" src="./assets/icons/search icon.png" alt="Search Icon">
 
-            <input type="text" id="search-input" placeholder="Search..." aria-label="Search products"
-                class="outline-none bg-transparent placeholder-gray-500 w-32 sm:w-120 h-8 sm:h-10 text-xs sm:text-base transition-all duration-300 ml-1 sm:ml-2">
+            <input type="text" id="search-input" placeholder="Search..." aria-label="Search products" style="margin-left: 4px;" class="outline-none bg-transparent placeholder-gray-500 w-[40vw] sm:w-[50vw] h-8 sm:h-10 text-xs sm:text-base transition-all duration-300">
         </div>
 
         <!-- Right Icons -->
@@ -135,35 +135,35 @@
                 onerror="this.onerror=null; this.style.display='none'"></div>
     </section>
 
-    <section
-        class="flex flex-row overflow-x-auto md:justify-around items-center border-y border-gray-300 py-2 gap-5 md:gap-20 px-4 snap-x overflow-hidden">
+    <section style="padding: 8px 0;"
+        class="flex flex-row justify-around items-center border-y border-gray-300 gap-5 md:gap-20 overflow-hidden">
 
         <div class="flex items-center gap-2 min-w-max snap-start">
-            <img src="/assets/icons/image.png" style="filter: contrast(5);" alt="Free Shipping" class="h-6 md:h-10 ">
+            <img src="/assets/icons/image.png" style="filter: contrast(5);" alt="Free Shipping" class="h-3 md:h-10 ">
             <div>
-                <p class="font-semibold text-xs md:text-base">Free Shipping</p>
-                <p class="text-[8px] md:text-sm text-gray-600">On all orders over Rs. 500</p>
+                <p class="font-semibold text-[8px] md:text-base">Free Shipping</p>
+                <p class="text-[6px] md:text-sm text-gray-600">On all orders over Rs. 500</p>
             </div>
         </div>
         <div class="flex items-center gap-2 min-w-max snap-start">
-            <img src="/assets/icons/handshake.png" alt="Secure Payment" style="padding-top: 4px;" class="h-6 md:h-10">
+            <img src="/assets/icons/handshake.png" alt="Secure Payment" style="padding-top: 4px;" class="h-4 md:h-10">
             <div>
-                <p class="font-semibold text-xs md:text-base">Secure Payment</p>
-                <p class="text-[8px] md:text-sm text-gray-600">We ensure safe checkout</p>
+                <p class="font-semibold text-[8px] md:text-base">Secure Payment</p>
+                <p class="text-[6px] md:text-sm text-gray-600">We ensure safe checkout</p>
             </div>
         </div>
         <div class="flex items-center gap-2 min-w-max snap-start">
-            <img src="/assets/icons/save-money.png" alt="Money Back" class="h-6 md:h-10">
+            <img src="/assets/icons/save-money.png" alt="Money Back" class="h-4 md:h-10">
             <div>
-                <p class="font-semibold text-xs md:text-base">100% Money Back</p>
-                <p class="text-[8px] md:text-sm text-gray-600">30 days return policy</p>
+                <p class="font-semibold text-[8px] md:text-base">100% Money Back</p>
+                <p class="text-[6px] md:text-sm text-gray-600">30 days return policy</p>
             </div>
         </div>
         <div class="flex items-center gap-2 min-w-max snap-start">
-            <img src="/assets/icons/message.png" alt="Support" class="h-6 md:h-10">
+            <img src="/assets/icons/message.png" alt="Support" class="h-4 md:h-10">
             <div>
-                <p class="font-semibold text-xs md:text-base">Online Support</p>
-                <p class="text-[8px] md:text-sm text-gray-600">24/7 dedicated support</p>
+                <p class="font-semibold text-[8px] md:text-base">Online Support</p>
+                <p class="text-[6px] md:text-sm text-gray-600">24/7 dedicated support</p>
             </div>
         </div>
     </section>
